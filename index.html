@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swagger UI</title>
+  <!-- Load Swagger UI styles -->
+  <link rel="stylesheet" type="text/css" href="swagger-ui.css">
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <!-- Load Swagger UI bundle -->
+  <script src="swagger-ui-bundle.js"></script>
+  <!-- Load Swagger UI standalone preset -->
+  <script src="swagger-ui-standalone-preset.js"></script>
+  <!-- Initialize Swagger UI -->
+  <script>
+    window.onload = function() {
+      const ui = SwaggerUIBundle({
+        url: "http://192.168.64.8:8081/swagger-usp-controller.yaml", // Replace with your Swagger YAML file URL
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+      window.ui = ui
+    }
+  </script>
+</body>
+</html>
+
